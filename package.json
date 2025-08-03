@@ -1,0 +1,31 @@
+{
+  "name": "algorithms-and-data-structures",
+  "version": "1.0.0",
+  "description": "Implementation of Algorithms and Data Structures on JavaScript",
+  "homepage": "https://github.com/Momen-devv/js-algorithms-and-ds-masterclass#readme",
+  "bugs": {
+    "url": "https://github.com/Momen-devv/js-algorithms-and-ds-masterclass/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Momen-devv/js-algorithms-and-ds-masterclass.git"
+  },
+  "license": "ISC",
+  "author": "Momen",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./src/*"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "pre-commit": "^1.2.2"
+  }
+}
