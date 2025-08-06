@@ -23,7 +23,7 @@ function same1(arr1, arr2) {
   return arr2.length === 0
 }
 
-console.log(same1([1, 2, 1], [4, 4, 1]))
+// console.log(same1([1, 2, 1], [4, 4, 1]))
 
 // Frequency counter
 function same(arr1, arr2) {
@@ -38,8 +38,8 @@ function same(arr1, arr2) {
   for (let val of arr2) {
     frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
   }
-  console.log(frequencyCounter1)
-  console.log(frequencyCounter2)
+  //   console.log(frequencyCounter1)
+  //   console.log(frequencyCounter2)
   for (let key in frequencyCounter1) {
     if (!(key ** 2 in frequencyCounter2)) {
       return false
@@ -51,4 +51,50 @@ function same(arr1, arr2) {
   return true
 }
 
-same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11])
+// same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11])
+
+// Solve Frequency Counter: Anagram Challenge
+// ('', '') true
+// ('aaz', 'zza') false
+// ('anagram', 'nagaram') true
+// ('rat', 'car') false
+// ('awesome', 'awesom') false
+// ('qwerty', 'qeywrt') true
+// ('texttwisttime', 'timetwisttext') true
+
+function validAnagram(word1, word2) {
+  if (word1 === '' && word2 === '') {
+    return true
+  }
+
+  let wordCounter1 = {}
+  let wordCounter2 = {}
+
+  for (let char of word1) {
+    wordCounter1[char] ? (wordCounter1[char] += 1) : (wordCounter1[char] = 1)
+    wordCounter1[char] = (wordCounter1[char] || 0) + 1
+  }
+
+  for (let char of word2) {
+    wordCounter2[char] = (wordCounter2[char] || 0) + 1
+  }
+
+  for (let key in wordCounter1) {
+    if (!(key in wordCounter2)) {
+      return false
+    }
+
+    if (wordCounter1[key] !== wordCounter2[key]) return false
+  }
+
+  return true
+}
+
+console.log(validAnagram('', ''))
+console.log(validAnagram('aaz', 'zza'))
+console.log(validAnagram('anagram', 'nagaram'))
+console.log(validAnagram('rat', 'car'))
+console.log(validAnagram('awesome', 'awesom'))
+console.log(validAnagram('amanaplanacanalpanama', 'acanalmanplanpamana'))
+console.log(validAnagram('qwerty', 'qeywrt'))
+console.log(validAnagram('texttwisttime', 'timetwisttext'))
