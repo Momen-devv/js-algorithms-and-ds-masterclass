@@ -53,4 +53,26 @@ function countUniqueValues(array) {
   return result
 }
 
-console.log(countUniqueValues([1, 1, 1, 1, 1, 1, 2, 7, 4, 4]))
+// console.log(countUniqueValues([1, 1, 1, 1, 1, 1, 2, 7, 4, 4]))
+
+// Multiple Pointers: Count Unique Values Challenge
+function countUniqueValues2(array) {
+  if (array.length === 0) return 0
+  let one = 0
+  let two = 1
+
+  while (two < array.length) {
+    if (array[one] === array[two]) two++
+    if (array[one] !== array[two]) {
+      one++
+      array[one] = array[two]
+    }
+  }
+  return array.slice(0, one).length
+}
+
+console.log(countUniqueValues2([1, 1, 1, 1, 1, 1, 2, 7, 4, 4])) // 4
+console.log(countUniqueValues2([1, 1, 1, 1, 1, 2])) // 2
+console.log(countUniqueValues2([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])) // 7
+console.log(countUniqueValues2([])) // 0
+console.log(countUniqueValues2([-2, -1, -1, 0, -1])) // 4
