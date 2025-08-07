@@ -71,8 +71,27 @@ function countUniqueValues2(array) {
   return array.slice(0, one).length
 }
 
-console.log(countUniqueValues2([1, 1, 1, 1, 1, 1, 2, 7, 4, 4])) // 4
-console.log(countUniqueValues2([1, 1, 1, 1, 1, 2])) // 2
-console.log(countUniqueValues2([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])) // 7
-console.log(countUniqueValues2([])) // 0
-console.log(countUniqueValues2([-2, -1, -1, 0, -1])) // 4
+// console.log(countUniqueValues2([1, 1, 1, 1, 1, 1, 2, 7, 4, 4])) // 4
+// console.log(countUniqueValues2([1, 1, 1, 1, 1, 2])) // 2
+// console.log(countUniqueValues2([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])) // 7
+// console.log(countUniqueValues2([])) // 0
+// console.log(countUniqueValues2([-2, -1, -1, 0, -1])) // 4
+
+// Multiple Pointers: Count Unique Values Challenge with Colt Steele
+function countUniqueValues3(arr) {
+  if (arr.length === 0) return 0
+  var i = 0
+  for (var j = 1; j < arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++
+      arr[i] = arr[j]
+    }
+  }
+  return i + 1
+}
+
+console.log(countUniqueValues3([1, 2, 2, 5, 7, 7, 99])) // 5
+console.log(countUniqueValues3([1, 1, 1, 1, 1, 2])) // 2
+console.log(countUniqueValues3([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])) // 7
+console.log(countUniqueValues3([])) // 0
+console.log(countUniqueValues3([-2, -1, -1, 0, -1])) // 4
